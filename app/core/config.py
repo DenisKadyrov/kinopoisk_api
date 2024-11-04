@@ -22,6 +22,9 @@ class GunicornConfig(BaseModel):
     workers: int = 1
     timeout: int = 900
 
+class Api(BaseModel):
+    key: str
+
 
 class LoggingConfig(BaseModel):
     log_level: Literal[
@@ -72,6 +75,7 @@ class Settings(BaseSettings):
     logging: LoggingConfig = LoggingConfig()
     api: ApiPrefix = ApiPrefix()
     db: DatabaseConfig
+    api: Api
 
 
 settings = Settings()
